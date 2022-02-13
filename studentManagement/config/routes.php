@@ -45,7 +45,7 @@ return static function (RouteBuilder $routes) {
     $routes->setRouteClass(DashedRoute::class);
     //Router::defaultRouteClass(DashedRoute::class);
 
-    $routes->connect('/sign_up',['controller'=>'Students','action'=>'index']);
+    $routes->connect('/',['controller'=>'Students','action'=>'index']);
 
     // $routes->scope('/', function (RouteBuilder $builder) {
     //     $builder->connect('/sign_up', ['controller' => 'StudentDetails', 'action' => 'index', 'signUp']);

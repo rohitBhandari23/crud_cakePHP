@@ -12,7 +12,7 @@ use Cake\Validation\Validator;
  * Students Model
  *
  * @property \App\Model\Table\StudentsTable&\Cake\ORM\Association\BelongsTo $Students
- * @property \App\Model\Table\CollegesTable&\Cake\ORM\Association\BelongsTo $Colleges
+//  * @property \App\Model\Table\CollegesTable&\Cake\ORM\Association\BelongsTo $Colleges //rohit
  * @property \App\Model\Table\StudentsTable&\Cake\ORM\Association\HasMany $Students
  *
  * @method \App\Model\Entity\Student newEmptyEntity()
@@ -49,10 +49,10 @@ class StudentsTable extends Table
             'foreignKey' => 'student_id',
             'joinType' => 'INNER',
         ]);
-        $this->belongsTo('Colleges', [
-            'foreignKey' => 'college_id',
-            'joinType' => 'INNER',
-        ]);
+        // $this->belongsTo('Colleges', [
+        //     'foreignKey' => 'college_id',
+        //     'joinType' => 'INNER',
+        // ]);
         $this->hasMany('Students', [
             'foreignKey' => 'student_id',
         ]);
@@ -147,7 +147,7 @@ class StudentsTable extends Table
         $rules->add($rules->isUnique(['username']), ['errorField' => 'username']);
         $rules->add($rules->isUnique(['email']), ['errorField' => 'email']);
         $rules->add($rules->existsIn('student_id', 'Students'), ['errorField' => 'student_id']);
-        $rules->add($rules->existsIn('college_id', 'Colleges'), ['errorField' => 'college_id']);
+        //$rules->add($rules->existsIn('college_id', 'Colleges'), ['errorField' => 'college_id']);
 
         return $rules;
     }
